@@ -6,5 +6,5 @@ export interface PerfilUser {
   dataEntrega: string;
   historicoUser: string;
 
-  //isPimenta: boolean;
+  //isPimenta: boolean
 }
