@@ -1,0 +1,92 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title size="small">
+            {{ isEdit == true ? 'Atualizar Cadastro' : 'Cadastrar ' }}
+        </ion-title>
+
+        <ion-buttons slot="end">
+            <ion-button (click)="fecharModal()">
+                <ion-icon name="close"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+        <ion-row>
+            <ion-col>
+                <ion-item color="#f0f0f9">
+                    <ion-label>Nome</ion-label>
+                    <ion-input type="text" formControlName="nome" required></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item color="#505050">
+                    <ion-label>Tipo de situação</ion-label>
+                    <ion-select formControlName="tipo" placeholder="Selecione o Tipo" okText="Ok" cancelText="Cancel">
+                        <!-- <ion-select-option value="Arabe">Árabe</ion-select-option>
+                        <ion-select-option value="Mexicana">Mexicana</ion-select-option>
+                        <ion-select-option value="Brasileira">Brasileira</ion-select-option>
+                        <ion-select-option value="Chinesa">Chinesa(COVID-19)</ion-select-option>
+                        <ion-select-option value="Indiana">Indiana</ion-select-option> -->
+                    </ion-select>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label>Data Entrega Consulta</ion-label>
+                    <ion-datetime formControlName="dataEntrega" displayFormat="DD MM YY" placeholder="Selecione a Data de Entrega"></ion-datetime>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <!--     <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label></ion-label>
+                    <ion-datetime formControlName="horaEntrega" displayFormat="HH mm" placeholder="Selecione a Hora de Entrega"></ion-datetime>
+                </ion-item>
+            </ion-col>
+        </ion-row> -->
+
+        <ion-range min="-0" max="10" pin color="secondary" formControlName="avaliacao">
+            <ion-icon slot="start" size="small" name="thumbs-down-outline"></ion-icon>
+            <ion-icon slot="end" name="thumbs-up-outline"></ion-icon>
+        </ion-range>
+
+        <!--       <ion-row>
+            <ion-col>
+                <ion-radio-group formControlName="isPimenta">
+                    <ion-list-header>
+                        <ion-label>Com pimenta?</ion-label>
+                    </ion-list-header>
+                    <ion-item>
+                        <ion-label>Sim</ion-label>
+                        <ion-radio slot="start" color="success" value="sim"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Não</ion-label>
+                        <ion-radio slot="start" color="tertiary" value="nao"></ion-radio>
+                    </ion-item>
+                </ion-radio-group>
+            </ion-col>
+        </ion-row> -->
+        <ion-row>
+            <ion-col>
+                <textarea class="ion-align-items-center" name="observacoes" cols="40" rows="15"></textarea>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-button type="submit" color="success" expand="block">
+                    {{isEdit == true ? 'Atualizar' : 'salvar'}}
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </form>
+</ion-content>

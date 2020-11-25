@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "chationic-1b3de": {
+      "hosting": {
+        "app": [
+          "chationic-1b3de"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+.message-input {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--ion-color-medium);
+    border-radius: 10px;
+    background: #fff;
+    resize: none;
+    margin-top: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    -webkit-padding-start: 8px;
+}
+
+.message {
+    padding: 10px !important;
+    border-radius: 10px !important;
+    margin-bottom: 4px !important;
+    white-space: pre-wrap;
+}
+
+.my-message {
+    height: 100%;
+    background: var(--ion-color-tertiary);
+    color: #fff;
+}
+
+.other-message {
+    background: var(--ion-color-secondary);
+    color: #fff;
+}
+
+.time {
+    color: #dfdfdf;
+    float: right;
+    font-size: small;
+}
+
+.msg-btn {
+    --padding-start: 0.5em;
+    --padding-end: 0.5em;
+}
+
+.imagemEmpresa {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}

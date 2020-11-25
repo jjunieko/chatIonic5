@@ -1,0 +1,67 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <img src="../../../assets/img/50x50.jpg" alt="dentech" class="imagemEmpresa" />
+        <ion-title>Chat - Dentech </ion-title>
+        <ion-buttons slot="end">
+            <ion-button fill="clear" (click)="signOut()">
+                <ion-icon slot="icon-only" name="log-out"></ion-icon>
+            </ion-button>
+
+            <ion-button slot="end" (click)="abrirModalPerfil()">
+                <ion-icon name="add-circle-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-grid>
+        <ion-row *ngFor="let message of messages | async">
+            <ion-col size="9" [offset]="message.myMsg? 3 : 0 " class="message" [ngClass]="{ 'my-message': message.myMsg, 'other-message': !message.myMsg} ">
+                <b>{{message.fromName}}</b> <br />
+                <span>{{message.msg}}</span>
+
+                <div class="time ion-text-rigth">
+                    <br />{{ message.createdAt?.toMillis() | date:'short'}}
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar color="light">
+        <ion-row class="ion-align-items-center">
+            <ion-col size="10">
+                <textarea autoGrow="true" rows="2" class="message-input" maxlength="1000" [(ngModel)]="newMsg"></textarea>
+            </ion-col>
+
+            <ion-col size="2">
+                <!-- <ion-button (click)="openLocalPDF()" expand="block" fill="clear">
+                    <ion-icon slot="icon-only" name="folder-open-outline"></ion-icon>
+                </ion-button>
+                <ion-button (click)="downloadAndOpenPDF()" expand="block" fill="clear">
+                    <ion-icon slot="icon-only" name="document-attach-outline"></ion-icon>
+                </ion-button> -->
+                <!--  <ion-item>
+                    <ion-label>Progesso upload{{ uploadPercent | async}} %</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Url Download {{ downloadUrl | async}}</ion-label>
+                </ion-item> -->
+
+                <!--  <input type="file" (change)="atualizaArquivo($event)" />
+                <button ion-button (click)="enviarArquivo()">Enviar</button> -->
+
+                <ion-button (click)="sendMessage()" expand="block" fill="clear" [disabled]="newMsg === '' " class="msg-btn">
+                    <ion-icon slot="icon-only" name="send"></ion-icon>
+                </ion-button>
+
+                <ion-button slot="end" (click)="openGalery()" expand="block" fill="clear">
+                    <ion-icon slot="icon-only" name="cloud-upload-outline"></ion-icon>
+                </ion-button>
+                <img [src]="downloadUrl | async" *ngIf="downloadUrl | async" />
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>
