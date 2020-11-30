@@ -34,6 +34,10 @@ const routes: Routes = [
     path: 'modal-perfil-user',
     loadChildren: () => import('./pages/modal-perfil-user/modal-perfil-user.module').then( m => m.ModalPerfilUserPageModule)
   },
+  {
+    path: 'perfil-do-usuario',
+    loadChildren: () => import('./pages/perfil-do-usuario/perfil-do-usuario.module').then( m => m.PerfilDoUsuarioPageModule)
+  },
 ];
 
 @NgModule({

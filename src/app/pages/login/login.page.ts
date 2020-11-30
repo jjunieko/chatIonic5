@@ -1,8 +1,11 @@
 import { Component, OnInit } from "@angular/core";
+//import { AngularFireAuth } from "@angular/fire/auth";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { AlertController, LoadingController } from "@ionic/angular";
 import { ChatService } from "src/app/services/chat.service";
+//import { User } from "../models/user";
+import { Storage } from "@ionic/storage";
 
 @Component({
   selector: "app-login",
@@ -17,7 +20,8 @@ export class LoginPage implements OnInit {
     private router: Router,
     private alertController: AlertController,
     private loadingController: LoadingController,
-    private chatService: ChatService
+    private chatService: ChatService, // private afa: AngularFireAuth,
+    public storage: Storage
   ) {
     this.credentialForm = fb.group({
       email: ["", [Validators.required, Validators.email]],

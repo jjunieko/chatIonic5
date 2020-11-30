@@ -7,9 +7,13 @@
                 <ion-icon slot="icon-only" name="log-out"></ion-icon>
             </ion-button>
 
+            <ion-button [routerLink]="['/perfil-do-usuario']">
+                <ion-icon slot="icon-only" name="medkit"> </ion-icon>
+            </ion-button>
+            <!-- 
             <ion-button slot="end" (click)="abrirModalPerfil()">
                 <ion-icon name="add-circle-outline"></ion-icon>
-            </ion-button>
+            </ion-button> -->
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
@@ -37,30 +41,9 @@
             </ion-col>
 
             <ion-col size="2">
-                <!-- <ion-button (click)="openLocalPDF()" expand="block" fill="clear">
-                    <ion-icon slot="icon-only" name="folder-open-outline"></ion-icon>
-                </ion-button>
-                <ion-button (click)="downloadAndOpenPDF()" expand="block" fill="clear">
-                    <ion-icon slot="icon-only" name="document-attach-outline"></ion-icon>
-                </ion-button> -->
-                <!--  <ion-item>
-                    <ion-label>Progesso upload{{ uploadPercent | async}} %</ion-label>
-                </ion-item>
-                <ion-item>
-                    <ion-label>Url Download {{ downloadUrl | async}}</ion-label>
-                </ion-item> -->
-
-                <!--  <input type="file" (change)="atualizaArquivo($event)" />
-                <button ion-button (click)="enviarArquivo()">Enviar</button> -->
-
                 <ion-button (click)="sendMessage()" expand="block" fill="clear" [disabled]="newMsg === '' " class="msg-btn">
                     <ion-icon slot="icon-only" name="send"></ion-icon>
                 </ion-button>
-
-                <ion-button slot="end" (click)="openGalery()" expand="block" fill="clear">
-                    <ion-icon slot="icon-only" name="cloud-upload-outline"></ion-icon>
-                </ion-button>
-                <img [src]="downloadUrl | async" *ngIf="downloadUrl | async" />
             </ion-col>
         </ion-row>
     </ion-toolbar>

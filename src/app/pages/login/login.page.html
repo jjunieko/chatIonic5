@@ -1,13 +1,14 @@
 <ion-header>
     <ion-toolbar color="primary">
-        <ion-title>login</ion-title>
+        <img src="../../../assets/img/50x50.jpg" alt="dentech" class="imagemEmpresa" />
+        <ion-title> Login Dentech</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
     <form [formGroup]="credentialForm">
         <ion-item>
-            <ion-input placeholder="Email address" formControlName="email" autofocus="true" clearInput="true">
+            <ion-input placeholder="E-mail" formControlName="email" autofocus="true" clearInput="true">
             </ion-input>
         </ion-item>
         <div *ngIf="(email.dirty || email.touched) && email.errors" class="errors">
@@ -27,7 +28,7 @@
   </form>
 
   <ion-button (click)="signUp()" expand="full"> Cadastro </ion-button>
-  <ion-button (click)="signIn()" expand="full" color="secondary">
-    Login
+  <ion-button (click)="signIn()" expand="full" color="secondary"
+    >Login
   </ion-button>
 </ion-content>

@@ -32,7 +32,7 @@ export class ModalPerfilUserPage implements OnInit {
       avaliacao: [""],
       horaEntrega: [""],
       dataEntrega: [""],
-      isPimenta: [""],
+      observacoes: [""],
     });
   }
 
@@ -54,9 +54,11 @@ export class ModalPerfilUserPage implements OnInit {
   }
 
   async showMensagem(): Promise<void> {
-    let message: string = "Comida Cadastrada com Sucesso";
+    let message: string = "Perfil atualizado com Sucesso";
     if (this.isEdit) {
-      message = "Comida Atualizada com Sucesso";
+      message = "Perfil atualizado com sucesso";
+    } else {
+      alert("erro ao atualizar perfil");
     }
     const toast = await this.toastControl.create({
       message: message,
@@ -74,7 +76,7 @@ export class ModalPerfilUserPage implements OnInit {
   public async submitForm(): Promise<void> {
     await this.showCarregar();
     //console.log(this.form.value);
-    this.chat.salvarComida(this.form.value, this.id);
+    this.chat.salvarProntuarioPerfil(this.form.value, this.id);
     await this.fecharCarregando();
     this.fecharModal();
     this.showMensagem();
@@ -89,4 +91,36 @@ export class ModalPerfilUserPage implements OnInit {
   async fecharCarregando(): Promise<void> {
     await this.carregar.dismiss();
   }
+
+  /*   public async remover(id: number): Promise<void> {
+    await this.perfilUser.remover(id);
+    //this.getComidas();
+  }
+
+  async actionSheetDelete(id: number) {
+    const actionSheet = await this.actionSheetController.create({
+      header: "tem certeza que deseja deletar ?",
+      cssClass: "my-custom-class",
+      buttons: [
+        {
+          text: "sim",
+          role: "destructive",
+          icon: "trash",
+          handler: async (): Promise<void> => {
+            await this.remover(id);
+          },
+          //console.log("delete clicked");
+        },
+        {
+          text: "cancelar",
+          icon: "close",
+          role: "cancel",
+          handler: () => {
+            console.log("cancel cliked");
+          },
+        },
+      ],
+    });
+    await actionSheet.present();
+  } */
 }

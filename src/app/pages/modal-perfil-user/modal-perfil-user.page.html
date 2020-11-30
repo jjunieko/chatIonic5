@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar>
         <ion-title size="small">
-            {{ isEdit == true ? 'Atualizar Cadastro' : 'Cadastrar ' }}
+            {{ isEdit == true ? 'Atualizar Prontuário' : 'Salvar Prontuário ' }}
         </ion-title>
 
         <ion-buttons slot="end">
@@ -17,8 +17,16 @@
         <ion-row>
             <ion-col>
                 <ion-item color="#f0f0f9">
-                    <ion-label>Nome</ion-label>
+                    <ion-label>Nome Paciente</ion-label>
                     <ion-input type="text" formControlName="nome" required></ion-input>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label>Data abertura Prontuário </ion-label>
+                    <ion-datetime formControlName="dataEntrega" displayFormat="DD MM YY" placeholder="Selecione data"></ion-datetime>
                 </ion-item>
             </ion-col>
         </ion-row>
@@ -27,11 +35,11 @@
                 <ion-item color="#505050">
                     <ion-label>Tipo de situação</ion-label>
                     <ion-select formControlName="tipo" placeholder="Selecione o Tipo" okText="Ok" cancelText="Cancel">
-                        <!-- <ion-select-option value="Arabe">Árabe</ion-select-option>
-                        <ion-select-option value="Mexicana">Mexicana</ion-select-option>
-                        <ion-select-option value="Brasileira">Brasileira</ion-select-option>
-                        <ion-select-option value="Chinesa">Chinesa(COVID-19)</ion-select-option>
-                        <ion-select-option value="Indiana">Indiana</ion-select-option> -->
+                        <ion-select-option value="Baixo">Baixo</ion-select-option>
+                        <ion-select-option value="Moderado">Moderado</ion-select-option>
+                        <ion-select-option value="Médio">Médio</ion-select-option>
+                        <ion-select-option value="Grave">Grave</ion-select-option>
+                        <ion-select-option value="Gravissímo">Gravissímo</ion-select-option>
                     </ion-select>
                 </ion-item>
             </ion-col>
@@ -40,7 +48,7 @@
             <ion-col>
                 <ion-item>
                     <ion-label>Data Entrega Consulta</ion-label>
-                    <ion-datetime formControlName="dataEntrega" displayFormat="DD MM YY" placeholder="Selecione a Data de Entrega"></ion-datetime>
+                    <ion-datetime formControlName="dataEntrega" displayFormat="DD MM YY" placeholder="Selecionar data"></ion-datetime>
                 </ion-item>
             </ion-col>
         </ion-row>
@@ -54,6 +62,7 @@
         </ion-row> -->
 
         <ion-range min="-0" max="10" pin color="secondary" formControlName="avaliacao">
+            <h3>Estado avaliativo do Paciente</h3>
             <ion-icon slot="start" size="small" name="thumbs-down-outline"></ion-icon>
             <ion-icon slot="end" name="thumbs-up-outline"></ion-icon>
         </ion-range>
